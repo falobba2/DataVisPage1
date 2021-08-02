@@ -53,7 +53,10 @@ d3.csv("page1.csv", function(d) {
 
   g.append("g")
       .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y).ticks(10).tickValues([100K, 200K, 300K, 400K, 500K, 600K, 700K, 800K, 900K, 1000K]))
+      .call(d3.axisLeft(y).ticks(10).tickFormat(function (d) {
+        var prefix = d3.formatPrefix(d);
+        return prefix.scale(d) + prefix.symbol;
+    }))
     .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
