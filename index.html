@@ -71,6 +71,27 @@ d3.csv("page1.csv", function(d) {
       .attr("height", function(d) { return height - y(d.Total); });
 });
 
+  
+  // Features of the annotation
+const annotations = [
+  {
+    note: {
+      label: "We can see that the current Active Cases is more than half of the Recovered Cases",
+      title: "Active Cases outlook"
+    },
+    x: 100,
+    y: 100,
+    dy: 100,
+    dx: 100
+  }
+]
+
+// Add annotation to the chart
+const makeAnnotations = d3.annotation()
+  .annotations(annotations)
+d3.select("#example1")
+  .append("g")
+  .call(makeAnnotations)
 </script>
 
 </body></html>
