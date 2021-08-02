@@ -53,7 +53,7 @@ d3.csv("page1.csv", function(d) {
 
   g.append("g")
       .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y))
+      .call(d3.axisLeft(y).ticks(10, " K"))
     .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
